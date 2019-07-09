@@ -1,0 +1,30 @@
+<h2> This is <%= @artist[:name]%>'s page </h2>
+
+<h1> <%= @artist[:name] %></h1>
+<h3> Artist id is <%= @artist[:id] %> </h3>
+<h3> Artist name is <%= @artist[:name] %> </h3>
+<h4> Artist was born in the year <%= @artist[:year_of_birth] %> </h4>
+<h3> Active: <%= @artist[:active] %> </h3>
+
+<form action="/artists/<%="#{@artist.id}"%>" method="post" class="form-example">
+  <div class="form-example">
+    <label for="content">Comment:</label>
+    <input type="text" name="content" id="content" required>
+    <input type="hidden" id="artist_id" name="artist_id" value="<%= @artist.id %>" required>
+    <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>" required>
+  </div>
+  <div class="form-example">
+    <input type="submit" value="Add Comment">
+  </div>
+</form>
+
+<h3> Comments about <%= @artist[:name]%> </h3>
+
+<% @artist_comment.each do |comment| %>
+    <%= "Comment by #{comment.user_id}: " %>
+    <%= comment.content %>
+    <br>
+    <br>
+    <% end %>
+
+<h3> <%= link_to "Add an Album to #{@artist.name}", "/albums/new?artist_id=#{@artist.id}" %> </h3>

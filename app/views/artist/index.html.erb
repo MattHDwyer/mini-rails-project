@@ -1,0 +1,11 @@
+<h1> All the Artists! </h1>
+
+<% @artists.each do |artist|%>
+    <p>
+        <h2>
+            <%= link_to(artist[:name], "/artist/#{artist[:id]}") %>
+        </h2>
+    </p>
+<% end %>
+
+<h3> <button onclick="window.location.href = '/artist/new';">Add Artist</button> </h3>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsMiniProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav> 
+    <ul>
+      <li><%= link_to "Home", '/' %> </li>
+      <li><%= link_to "Artists", '/artist'  %></li>
+      <li><%= link_to "Albums", '/albums'  %></li>
+      <li> <%= link_to "Tracks", '/tracks' %></li>
+      <li> </li>
+      <li> <%= link_to "Sign In", '/users/sign_in' %></li>
+      <li> <%= link_to "Sign Out", '/users/sign_out', {method: :delete} %></li>
+    </ul>
+  </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
