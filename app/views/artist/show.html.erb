@@ -20,10 +20,10 @@
 
 <h3> Comments about <%= @artist[:name]%> </h3>
 
-<% @artist_comment.each do |comment| %>
-    <%= "Comment by #{comment.user_id}: " %>
-    <%= comment.content %>
-    <br>
+<% Artist.find(@artist[:id]).artist_comments %>
+<% @artist.artist_comments.each do |comment| %>
+        <%= "Comment by #{comment.user_id}"%>
+        <%= comment.content %>
     <br>
     <% end %>
 

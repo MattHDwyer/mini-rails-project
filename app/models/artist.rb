@@ -1,4 +1,4 @@
 class Artist < ApplicationRecord
     has_many :albums
-    has_many :artist_comements
+    has_many :artist_comments
 end
